@@ -4,7 +4,7 @@ package br.com.lembrete.java;
 import javax.persistence.*;
 
 @Entity
-public class lembrete {
+public class Lembrete {
 
 
     @Id
@@ -17,7 +17,7 @@ public class lembrete {
     @Column(nullable = false)
     private String descricao;
 
-    public lembrete() {
+    public Lembrete() {
 
     }
 
@@ -47,7 +47,7 @@ public class lembrete {
 
     @Override
     public String toString() {
-        return "lembrete{" +
+        return "Lembrete{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", descricao='" + descricao + '\'' +
