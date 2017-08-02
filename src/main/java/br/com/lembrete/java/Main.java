@@ -14,8 +14,8 @@ public class Main {
 
 
         Lembrete lembrete = new Lembrete();
-        lembrete.setTitulo("Comprar Leite");
-        lembrete.setDescricao("Comprar o leite hoje as 10:30H");
+        lembrete.setTitulo("Dentista");
+        lembrete.setDescricao("Dentista marcado para o dia 17/08 as 17:00");
 
         EntityManager em = entityManagerFactory.createEntityManager();
 
