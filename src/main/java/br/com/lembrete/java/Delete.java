@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Update {
+public class Delete {
 
     private static EntityManagerFactory entityManagerFactory;
 
@@ -15,20 +15,22 @@ public class Update {
         EntityManager em = entityManagerFactory.createEntityManager();
 
         try {
-            Lembrete lembrete = em .find(Lembrete.class, 1L);
 
-            lembrete.setTitulo("Comprar Pão");
-            lembrete.setDescricao("Troquei o leite pelo pão");
+            Lembrete lembrete = em.find(Lembrete.class, 2L);
 
             em.getTransaction().begin();
-            em.merge(lembrete);
+            em.remove(lembrete);
             em.getTransaction().commit();
+
         }catch (Exception e){
             em.getTransaction().rollback();
 
-            System.out.println("UPDATE: " + e.getMessage());
+            System.out.println("DELETE: " + e.getMessage());
         }finally {
             em.close();
         }
+
+
+
     }
 }
