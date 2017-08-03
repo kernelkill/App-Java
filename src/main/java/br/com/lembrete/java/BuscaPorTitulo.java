@@ -3,8 +3,9 @@ package br.com.lembrete.java;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
-public class Main {
+public class BuscaPorTitulo {
 
     private static EntityManagerFactory entityManagerFactory;
 
@@ -12,23 +13,21 @@ public class Main {
 
         entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
 
-
-        Lembrete lembrete = new Lembrete();
-        lembrete.setTitulo("Mercado");
-        lembrete.setDescricao("Ir ao mercado comprar coisas");
+        List<Lembrete> lembretes = null;
 
         EntityManager em = entityManagerFactory.createEntityManager();
 
-        try {
-            em.getTransaction().begin();
-            em.persist(lembrete);
-            em.getTransaction().commit();
-        }catch (Exception e){
-            em.getTransaction().rollback();
 
-            System.out.println("INSERT: " + e.getMessage());
+        try {
+            lembretes = em.createQuery("from Lembrete l where l.descricao LIKE '%comprar%'").getResultList();
+        }catch (Exception e){
+            System.out.println("LIST ALL: " + e.getMessage());
         }finally {
             em.close();
+        }
+
+        if (lembretes != null){
+            lembretes.forEach(System.out::println);
         }
     }
 }
