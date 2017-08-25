@@ -17,7 +17,7 @@ public class BuscaID {
         Lembrete lembretes = null;
 
         try {
-            lembretes = em.find(Lembrete.class, 2L);
+            lembretes = em.find(Lembrete.class, 1L);
 
             System.out.println(lembretes);
         }catch (Exception e){

@@ -9,17 +9,22 @@ public class BuscaPorTitulo {
 
     private static EntityManagerFactory entityManagerFactory;
 
-    public static void main(String[] args) {
+    private static EntityManager getEntityManager(){
+        if (entityManagerFactory == null){
+            entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
+        }
+        return entityManagerFactory.createEntityManager();
+    }
 
-        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
+    public static void main(String[] args) {
 
         List<Lembrete> lembretes = null;
 
-        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityManager em = getEntityManager();
 
 
         try {
-            lembretes = em.createQuery("from Lembrete l where l.descricao LIKE '%comprar%'").getResultList();
+            lembretes = em.createQuery("from Lembrete l where l.descricao LIKE '%restaurante%'").getResultList();
         }catch (Exception e){
             System.out.println("LIST ALL: " + e.getMessage());
         }finally {
@@ -29,5 +34,7 @@ public class BuscaPorTitulo {
         if (lembretes != null){
             lembretes.forEach(System.out::println);
         }
+
+        entityManagerFactory.close();
     }
 }

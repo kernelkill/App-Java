@@ -8,16 +8,21 @@ public class Main {
 
     private static EntityManagerFactory entityManagerFactory;
 
-    public static void main(String[] args) {
+    private static EntityManager getEntityManager(){
+        if (entityManagerFactory == null){
+            entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
+        }
+        return entityManagerFactory.createEntityManager();
+    }
 
-        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
+    public static void main(String[] args) {
 
 
         Lembrete lembrete = new Lembrete();
-        lembrete.setTitulo("Mercado");
-        lembrete.setDescricao("Ir ao mercado comprar coisas");
+        lembrete.setTitulo("Restaurante");
+        lembrete.setDescricao("Ir ao restaurante pagar a conta");
 
-        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityManager em = getEntityManager();
 
         try {
             em.getTransaction().begin();
@@ -30,5 +35,7 @@ public class Main {
         }finally {
             em.close();
         }
+
+        entityManagerFactory.close();
     }
 }
