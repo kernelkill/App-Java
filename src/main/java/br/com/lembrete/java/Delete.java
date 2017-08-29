@@ -8,11 +8,18 @@ public class Delete {
 
     private static EntityManagerFactory entityManagerFactory;
 
+
+    public static EntityManager getEntityManager(){
+        if (entityManagerFactory == null){
+            entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
+        }
+
+        return entityManagerFactory.createEntityManager();
+    }
+
     public static void main(String[] args) {
 
-        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
-
-        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityManager em = getEntityManager();
 
         try {
 
@@ -30,7 +37,6 @@ public class Delete {
             em.close();
         }
 
-
-
+        entityManagerFactory.close();
     }
 }
