@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="100dc560-5a55-4e32-a636-4421c9a4d030" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/br/com/lembrete/java/Delete.class" afterPath="$PROJECT_DIR$/target/classes/br/com/lembrete/java/Delete.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/br/com/lembrete/java/Update.class" afterPath="$PROJECT_DIR$/target/classes/br/com/lembrete/java/Update.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/lembrete/java/Delete.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/lembrete/java/Delete.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/lembrete/java/Update.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/lembrete/java/Update.java" />
@@ -50,7 +52,7 @@
       <file leaf-file-name="Delete.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/lembrete/java/Delete.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="666">
               <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
               <folding />
             </state>
@@ -825,7 +827,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/lembrete/java/Delete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
+        <state relative-caret-position="666">
           <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding />
         </state>
