@@ -9,13 +9,19 @@ public class Lista {
 
     public static EntityManagerFactory entityManagerFactory;
 
-    public static void main(String[] args) {
+    public static EntityManager getEntityManager(){
+        if (entityManagerFactory == null){
+            entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
+        }
 
-        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
+        return entityManagerFactory.createEntityManager();
+    }
+
+    public static void main(String[] args) {
 
         List<Lembrete> lembretes = null;
 
-        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityManager em = getEntityManager();
 
         try{
             lembretes = em.createQuery("from Lembrete").getResultList();
